@@ -12,8 +12,6 @@ export const useQuiz = () => {
         TRANSIT_LOVE: 0,
         HEART_SIGNAL: 0,
         BAD_ROMANCE: 0,
-        WANT_DATING: 0,
-        NOONA: 0,
         '72_HOURS': 0,
     });
 
@@ -26,8 +24,6 @@ export const useQuiz = () => {
             TRANSIT_LOVE: 0,
             HEART_SIGNAL: 0,
             BAD_ROMANCE: 0,
-            WANT_DATING: 0,
-            NOONA: 0,
             '72_HOURS': 0,
         });
     }, []);

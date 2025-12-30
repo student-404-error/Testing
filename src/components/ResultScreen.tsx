@@ -18,9 +18,13 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, scores, onRe
                 나의 연애 프로그램 유형은?
             </div>
 
-            <h1 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--text-main)' }}>
+            <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem', color: 'var(--text-main)' }}>
                 {result.title}
             </h1>
+
+            <p style={{ fontSize: '1rem', color: 'var(--primary)', fontWeight: 'bold', marginBottom: '1.5rem' }}>
+                {result.tagline}
+            </p>
 
             <div style={{
                 width: '100%',
@@ -35,12 +39,33 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, scores, onRe
                 fontSize: '0.9rem'
             }}>
                 {/* Placeholder for Result Image */}
-                {result.image ? <img src={result.image} alt={result.title} /> : '이미지 준비중'}
+                {result.image ? <img src={result.image} alt={result.title} width={"100%"} /> : '이미지 준비중'}
             </div>
 
-            <p style={{ color: 'var(--text-sub)', marginBottom: '3rem', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>
-                {result.description}
-            </p>
+            <div style={{ width: '100%', textAlign: 'left', marginBottom: '2rem' }}>
+                <div style={{ padding: '1.5rem', backgroundColor: '#f8f9fa', borderRadius: '12px', marginBottom: '1.5rem' }}>
+                    <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--text-main)' }}>📌 한 줄 요약</h3>
+                    <p style={{ color: 'var(--text-sub)', lineHeight: '1.5' }}>{result.summary}</p>
+                </div>
+
+                <div style={{ marginBottom: '1.5rem' }}>
+                    <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--text-main)' }}>💌 연애 스타일</h3>
+                    <div style={{ color: 'var(--text-sub)', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>
+                        {result.style}
+                    </div>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
+                    <div style={{ padding: '1rem', backgroundColor: '#e3f2fd', borderRadius: '12px' }}>
+                        <h4 style={{ fontSize: '0.9rem', color: '#1565c0', marginBottom: '0.5rem' }}>💘 찰떡 궁합</h4>
+                        <p style={{ fontSize: '0.95rem', fontWeight: 'bold', color: '#0d47a1' }}>{result.match}</p>
+                    </div>
+                    <div style={{ padding: '1rem', backgroundColor: '#ffebee', borderRadius: '12px' }}>
+                        <h4 style={{ fontSize: '0.9rem', color: '#c62828', marginBottom: '0.5rem' }}>🚨 주의보</h4>
+                        <p style={{ fontSize: '0.95rem', fontWeight: 'bold', color: '#b71c1c' }}>{result.caution}</p>
+                    </div>
+                </div>
+            </div>
 
             {/* Score Chart */}
             <div style={{ width: '100%', marginBottom: '3rem', padding: '1.5rem', backgroundColor: '#fff', borderRadius: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
@@ -74,13 +99,12 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, scores, onRe
                                     marginTop: '8px',
                                     fontSize: '0.7rem',
                                     color: '#57606f',
-                                    writingMode: 'vertical-rl',
+                                    writingMode: 'horizontal-tb',
                                     textOrientation: 'mixed',
                                     maxHeight: '80px',
                                     overflow: 'hidden',
                                     textOverflow: 'ellipsis',
                                     whiteSpace: 'nowrap',
-                                    transform: 'rotate(180deg)',
                                     textAlign: 'left'
                                 }}>
                                     {r.title}
@@ -125,9 +149,31 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ result, scores, onRe
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        gap: '0.5rem'
+                        gap: '0.5rem',
+                        cursor: 'pointer'
                     }}
-                    onClick={() => alert('공유 기능 준비중입니다!')}
+                    onClick={async () => {
+                        const shareData = {
+                            title: '연애 프로그램 유형 테스트',
+                            text: `나의 연애 프로그램 유형은? [${result.title}] ${result.tagline} \n테스트 하러가기 👉`,
+                            url: window.location.href
+                        };
+
+                        if (navigator.share) {
+                            try {
+                                await navigator.share(shareData);
+                            } catch (err) {
+                                console.log('Share canceled');
+                            }
+                        } else {
+                            try {
+                                await navigator.clipboard.writeText(window.location.href);
+                                alert('링크가 복사되었습니다!');
+                            } catch (err) {
+                                alert('링크 복사에 실패했습니다.');
+                            }
+                        }
+                    }}
                 >
                     <Share2 size={18} />
                     공유하기
