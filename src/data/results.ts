@@ -1,4 +1,10 @@
 import type { Result } from './types';
+import IamSolo from '../assets/IamSolo.jpg';
+import SoloHell from '../assets/SoloHell.jpeg';
+import TransitLove from '../assets/TransitLove.png';
+import HeartSignal from '../assets/HeartSignal.jpeg';
+import BadRomance from '../assets/BadRomance.jpg';
+import Hours72 from '../assets/72hours.png';
 
 export const RESULTS: Result[] = [
     {
@@ -10,7 +16,7 @@ export const RESULTS: Result[] = [
         style: '* 첫눈에 반하는 일은 거의 없어요. 대화를 나눠보고 \'이 사람이 내 인생에 들어와도 괜찮을지\'를 꼼꼼히 따져봅니다.\n\n* 가성비 떨어지는 밀당은 질색! 솔직하고 투박하더라도 진심이 느껴지는 만남을 선호합니다.\n\n* 내 일상과 루틴이 중요해서, 연애를 해도 나만의 시간은 꼭 지켜야 해요.',
         match: '하트 시그널 (서로 예의를 지키며 천천히 스며듦)',
         caution: '72시간 소개팅 (너무 서두르는 모습에 뒷걸음질 칠 수도...)',
-        image: "src/assets/IamSolo.jpg"
+        image: IamSolo
     },
     {
         id: 'SOLO_HELL',
@@ -21,7 +27,7 @@ export const RESULTS: Result[] = [
         style: '* 내가 마음에 드는 사람은 무조건 쟁취해야 직성이 풀립니다. 경쟁자가 있어도 오히려 즐기는 편!\n\n* 연락 텐션이 높고, 핫플레이스 데이트와 예쁜 사진은 필수예요.\n\n* 좋으면 좋다, 싫으면 싫다! 자기표현이 확실해서 상대방을 안달 나게 만드는 플러팅 장인입니다.',
         match: '불량 연애 (도파민 터지는 화끈한 만남 가능)',
         caution: '나는 솔로 (상대의 현실적인 모습이 조금 지루하게 느껴질지도?)',
-        image: "src/assets/SoloHell.jpeg"
+        image: SoloHell
     },
     {
         id: 'TRANSIT_LOVE',
@@ -32,7 +38,7 @@ export const RESULTS: Result[] = [
         style: '* 상대방의 사소한 말투 하나에도 의미 부여를 많이 하고, 밤마다 혼자 생각이 많아지는 타입입니다.\n\n* 새로운 사람을 만날 때도 과거의 기억이나 서사가 중요해요. 공감대가 형성되지 않으면 마음의 문을 열지 않아요.\n\n* 질투가 나도 쿨한 척하지만, 속으로는 이미 눈물 한 바가지 흘리고 있는 타입.',
         match: '하트 시그널 (말하지 않아도 서로의 마음을 잘 읽어줌)',
         caution: '72시간 소개팅 (내 감정을 정리할 시간도 안 주고 몰아붙이면 도망감)',
-        image: "src/assets/TransitLove.png"
+        image: TransitLove
     },
     {
         id: 'HEART_SIGNAL',
@@ -43,7 +49,7 @@ export const RESULTS: Result[] = [
         style: '* 대놓고 들이대기보다는 "저 사람 나한테 관심 있나?" 싶게 만드는 고도의 심리전과 시그널을 잘 활용합니다.\n\n* 조용한 분위기, 다정한 말투, 센스 있는 배려에 깊은 호감을 느낍니다.\n\n* 관계의 속도를 중요하게 생각해서, 너무 빠르지도 느리지도 않게 스며드는 연애를 꿈꿔요.',
         match: '환승 연애 (서로의 섬세한 감정 변화를 잘 알아차림)',
         caution: '불량 연애 (너무 직설적이고 거친 표현에 정이 확 떨어질 수 있음)',
-        image: "src/assets/HeartSignal.jpeg"
+        image: HeartSignal
     },
     {
         id: 'BAD_ROMANCE',
@@ -54,7 +60,7 @@ export const RESULTS: Result[] = [
         style: '* 조건? 상황? 그런 건 나중 문제! 지금 당장 눈앞의 상대에게 느껴지는 강렬한 섹시함과 텐션이 제일 중요합니다.\n\n* 스킨십 속도가 광속이며, 상대방을 소유하고 싶은 욕구와 질투도 숨기지 않아요.\n\n* 남들 눈치 보지 않는 과감한 연애를 즐기며, 금방 뜨거워지는 만큼 열정적인 사랑을 합니다.',
         match: '솔로 지옥 (서로의 매력에 즉각적으로 반응함)',
         caution: '나는 솔로 (너무 본능적인 모습에 상대가 당황해서 선을 그을 수 있음)',
-        image: "src/assets/BadRomance.jpg"
+        image: BadRomance
     },
     {
         id: '72_HOURS',
@@ -65,6 +71,6 @@ export const RESULTS: Result[] = [
         style: '* 꽂히면 바로 그날부터 1일 가능! 직진밖에 모르는 스타일로, 짧은 시간 안에 상대의 모든 것을 파악하려 합니다.\n\n* 밀당하는 사람을 보면 답답해서 미쳐버릴지도 몰라요. 결론이 빨리 나야 마음이 편합니다.\n\n* 데이트도 효율적으로! 만나서 뭐 할지 고민하기보다 일단 만나서 부딪치며 서로를 알아갑니다.',
         match: '솔로 지옥 (둘 다 시원시원해서 진도가 빠름)',
         caution: '환승 연애 (상대는 이제 막 고민 시작했는데 혼자 이미 이별까지 생각할 수도...)',
-        image: "src/assets/72hours.png"
+        image: Hours72
     },
 ];
